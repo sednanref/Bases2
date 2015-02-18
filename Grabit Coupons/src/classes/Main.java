@@ -10,31 +10,19 @@ public class Main {
 
 
 		public static void main(String[] args){
-			User usuario = new User();
-			//User usuario2 = new User();
-			
-			usuario.seteMail("pedroperez@gmail.com");
-			usuario.setPassword("olakasehaha");
-			usuario.setName("Pedro");
-			usuario.setLastName("Pérez");
-			usuario.setVirtualMoney(0);
-			usuario.seteMailFrequency(7);
-			
-			Company comp = new Company();
-			
-			comp.seteMail("polar@polar.com");
-			comp.setName("Alimentos Polar");
-			comp.setAddress("sabrá dios");
-			comp.setRIF("J-23489328");
-			comp.setTelephoneNumber("555-55-55");
-			comp.setCustomersNumber(27000000);
-			
+			User usuario = new User("luis@gmail.com", "7530804", "Luis");
+			Customer customer = new Customer("pedro@gmail.com", "blabla", "pedro",
+										 "Pérez", 50, 7);
+			Company comp = new Company("polar@polar.com.ve", "polarcita", "Empresas Polar",
+										"J-123123", "sabrá Dios dónde", "0212-3863456", 2000000);
+		
 			//@SuppressWarnings("deprecation")
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
 			session.save(usuario);
+			session.save(customer);
 			session.save(comp);
 			
 			

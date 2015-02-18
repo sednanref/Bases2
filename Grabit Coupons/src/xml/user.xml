@@ -6,18 +6,28 @@
 <hibernate-mapping package="classes">
  
      <class name="User" table="USER">
-        <id name="id" column="ID">
-            <generator class="native">
-        </generator>
+        <id name="eMail" column="EMAIL">
         </id>
         
-        <property name="eMail" column="EMAIL"/>
         <property name="password" column="PASSWORD"/>
         <property name="name" column="NAME"/>
-        <property name="lastName" column="LAST_NAME"/>
-        <property name="virtualMoney" column="VIRTUAL_MONEY"/>
-        <property name="eMailFrequency" column="EMAIL_FREQUENCY"/>
-        
+		
+		<joined-subclass name="Customer" extends="User" table="CUSTOMER">
+			<key column="eMail" />
+	        <property name="lastName" column="LAST_NAME"/>
+	        <property name="virtualMoney" column="VIRTUAL_MONEY"/>
+	        <!-- faltan tarjetas de crédito -->
+	        <property name="eMailFrequency" column="EMAIL_FREQUENCY"/>
+        </joined-subclass>
+         
+        <joined-subclass name="Company" extends="User" table="COMPANY">
+        	<key column="eMail" />
+	        <property name="RIF" column="RIF"/>
+	        <property name="name" column="NAME"/>
+	        <property name="address" column="ADDRESS"/>
+	        <property name="telephoneNumber" column="TELEPHONE_NUMBER"/>
+	        <property name="customersNumber" column="CUSTOMERS_NUMBER"/>
+        </joined-subclass>
     </class>
     
 </hibernate-mapping>
