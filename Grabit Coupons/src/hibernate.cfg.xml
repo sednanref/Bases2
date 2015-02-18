@@ -26,12 +26,13 @@
 		<property name="hbm2ddl.auto">create</property>
 		
 		<!-- Mention here all the model classes along with their package name -->
-		<!-- Using Annotations -->
+		<!-- Using Annotations 
 		<mapping class="Classes.User"/>
-		
-		
-		<!-- Using hbm.xml files 
-		<mapping resource="resources/org/hibernate/tutorial/domain/Class_Name.hbm.xml"/>
 		-->
+		
+		<!-- Using hbm.xml files--> 
+		<!--<mapping resource="resources/org/hibernate/tutorial/domain/Class_Name.hbm.xml"/>-->
+		<mapping resource="xml/user.xml"/>
+		<mapping resource="xml/company.xml"/>
 	</session-factory>
 </hibernate-configuration>
