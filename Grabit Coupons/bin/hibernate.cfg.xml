@@ -33,5 +33,7 @@
 		<!-- Using hbm.xml files--> 
 		<!--<mapping resource="resources/org/hibernate/tutorial/domain/Class_Name.hbm.xml"/>-->
 		<mapping resource="xml/user.xml"/>
+		<mapping resource="xml/sale.xml"/>
+		<mapping resource="xml/category.xml"/>
 	</session-factory>
 </hibernate-configuration>
