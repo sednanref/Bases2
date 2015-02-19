@@ -18,6 +18,14 @@
 	        <property name="virtualMoney" column="VIRTUAL_MONEY"/>
 	        <!-- faltan tarjetas de crédito -->
 	        <property name="eMailFrequency" column="EMAIL_FREQUENCY"/>
+	        <set name="persons" table="FRIENDS" cascade="none" lazy="false">
+	      		<key column="PERSON_EMAIL"/>
+	      		<many-to-many column="FRIEND_EMAIL" class="classes.Customer" />
+			</set> 	
+			<set name="friends" table="FRIENDS" cascade="none" lazy="false">
+			      <key column="FRIEND_EMAIL"/>
+			      <many-to-many column="PERSON_EMAIL" class="classes.Customer" />
+			</set> 
         </joined-subclass>
          
         <joined-subclass name="Company" extends="User" table="COMPANY">
