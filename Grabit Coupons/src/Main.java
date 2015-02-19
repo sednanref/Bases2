@@ -1,6 +1,5 @@
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.*;
+import org.hibernate.cfg.*;
 
 //import classes.User;
 import classes.*;
@@ -25,6 +24,16 @@ public class Main {
 			Sale sale1 = new Sale("Relojes Baratos", 100.00, 79.99, date1, date2, 
 								  "Relojes desde 100Bs con 20% de descuento.");
 			Category cat = new Category("Caballeros");
+			Category cat2 = new Category("Relojes");
+			Category cat3 = new Category("Navajas");
+			Set<Category> catSet = new HashSet<Category>();
+			cat.setSuperCategory(cat);
+			cat2.setSuperCategory(cat);
+			cat3.setSuperCategory(cat);
+			catSet.add(cat2);
+			catSet.add(cat3);
+			cat.setSubCategories(catSet);
+			
 			
 			//Inicio de la transacción
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -32,6 +41,8 @@ public class Main {
 			session.beginTransaction();
 
 			session.save(cat);
+			session.save(cat2);
+			session.save(cat3);
 			session.save(customer);
 			session.save(customer2);
 			session.save(customer3);
@@ -41,8 +52,33 @@ public class Main {
 			
 			
 			session.getTransaction().commit();
-			session.close();
-			sessionFactory.close();
 			
+			
+//			String q = "from Category c left join c.subCategories";
+//			
+//			Transaction transaction = null;
+//	        try{
+//	        	transaction = session.beginTransaction();
+//	        
+//	        	Query query =
+//	    				session.createQuery(q);
+//	    		
+//	    		//Guardando en la lista todas las tuplas recibidas en el query	
+//	    		List cs = query.list(); 
+//
+//	    		//Iterando sobre todas las tuplas almacenadas en la lista
+//	        	for (Iterator iterator = cs.iterator(); iterator.hasNext();) {
+//	        		Object c = iterator.next(); 
+//	        		System.out.print("First Name: " + c);  
+//	        	}
+//	        	transaction.commit();
+//	        } catch (HibernateException e) {
+//	        	if (transaction!=null) transaction.rollback();
+//	        	e.printStackTrace(); 
+//	        } finally {
+//	        	session.close(); 
+//	        }
+	        session.close();
+			sessionFactory.close();
 		}
 }

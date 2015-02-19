@@ -13,6 +13,14 @@
         <property name="name" column="NAME"/>
 		
 		
+		<many-to-one name="superCategory" class="classes.Category" column="SUPERCATEGORY_ID"
+            not-null="false"/>
+            
+		<set name="subCategories" table="CATEGORY" lazy="false" inverse="false">
+              <key column="SUPERCATEGORY_ID"/>
+              <one-to-many class="classes.Category" />
+    	</set>
+		
     </class>
     
 </hibernate-mapping>

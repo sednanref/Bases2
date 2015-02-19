@@ -19,7 +19,7 @@
         <!-- dates -->
         <!-- pictures -->
         <property name="description" column="DESCRIPTION"/>
-		
+        
 		
     </class>
     
