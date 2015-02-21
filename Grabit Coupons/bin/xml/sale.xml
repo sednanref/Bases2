@@ -20,7 +20,10 @@
         <!-- pictures -->
         <property name="description" column="DESCRIPTION"/>
         
-		
+		<!-- Compañía que ofrece la promoción -->
+		<many-to-one name="company" class="classes.Company" column="COMPANY_EMAIL"
+            not-null="false"/>
+            
     </class>
     
 </hibernate-mapping>

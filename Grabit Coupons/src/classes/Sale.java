@@ -12,6 +12,7 @@ public class Sale {
 	/* dates */
 	/* pictures */
 	String description;
+	Company company;								/*Empresa a la que pertenece*/
 	
 	public Sale( String name, double originalPrice, double offeredPrice,
 				Date expeditionDate, Date expirationDate, String description){
@@ -65,6 +66,13 @@ public class Sale {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
 }

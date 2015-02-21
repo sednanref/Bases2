@@ -29,12 +29,17 @@
         </joined-subclass>
          
         <joined-subclass name="Company" extends="User" table="COMPANY">
-        	<key column="eMail" />
+        	<key column="COMPANY_EMAIL" />
 	        <property name="RIF" column="RIF"/>
 	        <property name="name" column="NAME"/>
 	        <property name="address" column="ADDRESS"/>
 	        <property name="telephoneNumber" column="TELEPHONE_NUMBER"/>
 	        <property name="customersNumber" column="CUSTOMERS_NUMBER"/>
+	        <!-- Offered Sales -->
+	        <set name="offeredSales" table="SALE" lazy="false" inverse="true">
+              <key column="SALE_ID"/>
+              <one-to-many class="classes.Sale" />
+    		</set>
         </joined-subclass>
     </class>
     

@@ -1,10 +1,14 @@
 package classes;
 
+import java.util.*;
+
 public class Company extends User {
-	public String RIF;
-	public String address;
-	public String telephoneNumber;
-	public int customersNumber;
+	private String RIF;
+	private String address;
+	private String telephoneNumber;
+	private int customersNumber;
+	private Set<Sale> offeredSales = new HashSet<Sale>();
+	
 	
 	public Company(String eMail, String password, String name, String RIF,
 				   String address, String telephoneNumber, int customersNumber){
@@ -44,6 +48,14 @@ public class Company extends User {
 	
 	public void setCustomersNumber(int customersNumber) {
 		this.customersNumber = customersNumber;
+	}
+
+	public Set<Sale> getOfferedSales() {
+		return offeredSales;
+	}
+
+	public void setOfferedSales(Set<Sale> offeredSales) {
+		this.offeredSales = offeredSales;
 	}
 	
 	

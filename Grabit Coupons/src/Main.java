@@ -10,7 +10,7 @@ import java.util.*;
 public class Main {
 
 		public static void main(String[] args){
-			//Objetos a añadir a la base de datos
+			//Objects to insert into the DB
 			Customer customer = new Customer("pedro@gmail.com", "blabla", "pedro",
 										 "Pérez", 50, 7);
 			Customer customer2 = new Customer("pablo@gmail.com", "n4p0l3s!", "Pablo Emilio",
@@ -27,19 +27,26 @@ public class Main {
 			Category cat2 = new Category("Relojes");
 			Category cat3 = new Category("Navajas");
 			Set<Category> catSet = new HashSet<Category>();
+			Set<Sale> offSales = new HashSet<Sale>();
+			offSales.add(sale1);
+			/*Relationship between categories and sub-categories*/
 			cat.setSuperCategory(cat);
 			cat2.setSuperCategory(cat);
 			cat3.setSuperCategory(cat);
 			catSet.add(cat2);
 			catSet.add(cat3);
 			cat.setSubCategories(catSet);
+			/*Relationship between a company and a sale.*/
+			comp.setOfferedSales(offSales);
+			sale1.setCompany(comp);
+			/*Friendship between customers.*/
 			
 			
 			//Inicio de la transacción
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-
+			
 			session.save(cat);
 			session.save(cat2);
 			session.save(cat3);
