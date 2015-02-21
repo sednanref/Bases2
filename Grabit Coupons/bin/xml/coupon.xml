@@ -21,7 +21,7 @@
         <many-to-one name="buyer" class="classes.Customer" column="BUYER"
         			not-null="true"/>
         			
-        <many-to-one name="sale" class="classes.Sale" column="Sale"
+        <many-to-one name="sale" class="classes.Sale" column="SALE"
         			not-null="true"/>
             
     </class>

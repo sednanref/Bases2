@@ -16,7 +16,13 @@
 			<key column="EMAIL" />
 	        <property name="lastName" column="LAST_NAME"/>
 	        <property name="virtualMoney" column="VIRTUAL_MONEY"/>
-	        <!-- faltan tarjetas de crédito -->
+	        
+	        <!-- Credit Cards of the user -->
+	        <set name="creditCards" table="CREDIT_CARD" lazy="false" inverse="false">
+              <key column="EMAIL"/>
+              <one-to-many class="classes.CreditCard"/>
+    		</set>
+    		
 	        <property name="eMailFrequency" column="EMAIL_FREQUENCY"/>
 	        <set name="persons" table="FRIENDS" cascade="none" lazy="false">
 	      		<key column="PERSON_EMAIL"/>
@@ -28,7 +34,7 @@
 			</set> 
 			<!-- Coupons purchased by the customer -->
 			<set name="purchasedCoupons" table="COUPONS" lazy="false" inverse="true">
-              <key column="COUPON_ID"/>
+              <key column="BUYER"/>
               <one-to-many class="classes.Coupon" />
     		</set>
         </joined-subclass>
@@ -42,7 +48,7 @@
 	        <property name="customersNumber" column="CUSTOMERS_NUMBER"/>
 	        <!-- Offered Sales -->
 	        <set name="offeredSales" table="SALE" lazy="false" inverse="true">
-              <key column="SALE_ID"/>
+              <key column="COMPANY_EMAIL"/>
               <one-to-many class="classes.Sale" />
     		</set>
         </joined-subclass>

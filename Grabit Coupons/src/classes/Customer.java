@@ -5,7 +5,7 @@ public class Customer extends User {
 	
 	private String lastName;
 	private int virtualMoney;
-	//Tarjetas de crédito         <---------- FALTA
+	private Set<String> creditCards = new HashSet<String>();
 	private int eMailFrequency;
 	private Set<Customer> persons = new HashSet<Customer>();
 	private Set<Customer> friends = new HashSet<Customer>();      
@@ -34,6 +34,14 @@ public class Customer extends User {
 
 	public void setVirtualMoney(int virtualMoney) {
 		this.virtualMoney = virtualMoney;
+	}
+
+	public Set<String> getCreditCards() {
+		return creditCards;
+	}
+
+	public void setCreditCards(Set<String> creditCards) {
+		this.creditCards = creditCards;
 	}
 
 	public int geteMailFrequency() {

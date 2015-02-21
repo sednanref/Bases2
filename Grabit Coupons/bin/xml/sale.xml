@@ -32,7 +32,7 @@
             
         <!-- Coupons purchased of the sale -->
         <set name="coupons" table="COUPONS" lazy="false" inverse="true">
-              <key column="COUPON_ID"/>
+              <key column="SALE"/>
               <one-to-many class="classes.Coupon" />
     	</set>
     	

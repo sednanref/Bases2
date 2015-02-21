@@ -36,5 +36,6 @@
 		<mapping resource="xml/sale.xml"/>
 		<mapping resource="xml/category.xml"/>
 		<mapping resource="xml/coupon.xml"/>
+		<mapping resource="xml/credit_card.xml"/>
 	</session-factory>
 </hibernate-configuration>

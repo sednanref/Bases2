@@ -28,6 +28,9 @@ public class Main {
 			Category cat3 = new Category("Navajas");
 			Coupon coup = new Coupon("Pedro Pérez", date1, date1, date1, 1, "virtualMoney", "123",
 									customer, sale1);
+			CreditCard card1 = new CreditCard("1111222233334444", customer);
+			CreditCard card2 = new CreditCard("1111222233334445", customer);
+			CreditCard card3 = new CreditCard("1111222233334446", customer);
 			/*Sets to ensure relationships.*/
 			Set<Category> catSet = new HashSet<Category>();
 			Set<Sale> offSales = new HashSet<Sale>();
@@ -37,6 +40,7 @@ public class Main {
 			Set<Customer> friends3 = new HashSet<Customer>();
 			Set<Category> saleCat = new HashSet<Category>();
 			Set<Sale> catSale = new HashSet<Sale>();
+			Set<CreditCard>credCardSet = new HashSet<CreditCard>();
 			/*Relationship between categories and sub-categories*/
 			cat.setSuperCategory(cat);
 			cat2.setSuperCategory(cat);
@@ -55,6 +59,10 @@ public class Main {
 			customer.setFriends(friends1);
 			customer2.setFriends(friends2);
 			customer3.setFriends(friends3);
+			/*Credit Card and Customer relationship*/
+			credCardSet.add(card1);
+			credCardSet.add(card2);
+			credCardSet.add(card3);
 			/*Relationship between category and sale*/
 			catSale.add(sale1);
 			saleCat.add(cat3);
@@ -69,6 +77,9 @@ public class Main {
 			session.save(cat);
 			session.save(cat2);
 			session.save(cat3);
+			session.save(card1);
+			session.save(card2);
+			session.save(card3);
 			session.save(customer);
 			session.save(customer2);
 			session.save(customer3);
