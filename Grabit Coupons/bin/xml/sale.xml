@@ -16,6 +16,10 @@
         <property name="expeditionDate" type="date" column="EXPEDITION_DATE"/>
         <property name="expirationDate" type="date" column="EXPIRATION_DATE"/>
         <!-- links -->
+        <set name="links" table="LINK" lazy="false" inverse="true">
+              <key column="SALE_ID"/>
+              <one-to-many class="classes.SaleLink"/>
+    	</set>
         <!-- dates -->
         <!-- pictures -->
         <property name="description" column="DESCRIPTION"/>

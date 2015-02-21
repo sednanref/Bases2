@@ -31,6 +31,7 @@ public class Main {
 			CreditCard card1 = new CreditCard("1111222233334444", customer);
 			CreditCard card2 = new CreditCard("1111222233334445", customer);
 			CreditCard card3 = new CreditCard("1111222233334446", customer);
+			SaleLink link1 = new SaleLink("relojes.com/reloj1", sale1);
 			/*Sets to ensure relationships.*/
 			Set<Category> catSet = new HashSet<Category>();
 			Set<Sale> offSales = new HashSet<Sale>();
@@ -41,6 +42,7 @@ public class Main {
 			Set<Category> saleCat = new HashSet<Category>();
 			Set<Sale> catSale = new HashSet<Sale>();
 			Set<CreditCard>credCardSet = new HashSet<CreditCard>();
+			Set<SaleLink>linkSet = new HashSet<SaleLink>();
 			/*Relationship between categories and sub-categories*/
 			cat.setSuperCategory(cat);
 			cat2.setSuperCategory(cat);
@@ -68,6 +70,9 @@ public class Main {
 			saleCat.add(cat3);
 			cat3.setCategorySales(catSale);
 			sale1.setCategories(saleCat);
+			/*Relation between the link and the sale*/
+			linkSet.add(link1);
+			sale1.setLinks(linkSet);
 			
 			//Transaction starts
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -80,6 +85,7 @@ public class Main {
 			session.save(card1);
 			session.save(card2);
 			session.save(card3);
+			session.save(link1);
 			session.save(customer);
 			session.save(customer2);
 			session.save(customer3);

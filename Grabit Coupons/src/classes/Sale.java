@@ -8,7 +8,7 @@ public class Sale {
 	private double offeredPrice;
 	private Date expeditionDate;
 	private Date expirationDate;
-	/* links */
+	private Set<SaleLink> links = new HashSet<SaleLink>();
 	/* dates */
 	/* pictures */
 	private String description;
@@ -29,42 +29,63 @@ public class Sale {
 	public int getID() {
 		return ID;
 	}
+	
 	public void setID(int iD) {
 		ID = iD;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public double getOriginalPrice() {
 		return originalPrice;
 	}
+	
 	public void setOriginalPrice(double originalPrice) {
 		this.originalPrice = originalPrice;
 	}
+	
 	public double getOfferedPrice() {
 		return offeredPrice;
 	}
+	
 	public void setOfferedPrice(double offeredPrice) {
 		this.offeredPrice = offeredPrice;
 	}
+	
 	public Date getExpeditionDate() {
 		return expeditionDate;
 	}
+	
 	public void setExpeditionDate(Date expeditionDate) {
 		this.expeditionDate = expeditionDate;
 	}
+	
 	public Date getExpirationDate() {
 		return expirationDate;
 	}
+	
 	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
+	
+	public Set<SaleLink> getLinks() {
+		return links;
+	}
+
+	public void setLinks(Set<SaleLink> links) {
+		this.links = links;
+	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -92,6 +113,5 @@ public class Sale {
 	public void setCoupons(Set<Coupon> coupons) {
 		this.coupons = coupons;
 	}
-
 
 }
