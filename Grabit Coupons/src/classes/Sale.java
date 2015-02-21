@@ -14,6 +14,7 @@ public class Sale {
 	private String description;
 	private Company company;		/*Company of the Sale*/
 	private Set<Category> categories = new HashSet<Category>(); /*Categories of the sale*/
+	private Set<Coupon> coupons = new HashSet<Coupon>(); /*Buyers of the sale*/
 	
 	public Sale( String name, double originalPrice, double offeredPrice,
 				Date expeditionDate, Date expirationDate, String description){
@@ -83,5 +84,14 @@ public class Sale {
 	public void setCategories(Set<Category> categories) {
 		this.categories = categories;
 	}
+
+	public Set<Coupon> getCoupons() {
+		return coupons;
+	}
+
+	public void setCoupons(Set<Coupon> coupons) {
+		this.coupons = coupons;
+	}
+
 
 }

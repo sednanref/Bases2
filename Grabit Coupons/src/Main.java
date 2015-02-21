@@ -26,6 +26,8 @@ public class Main {
 			Category cat = new Category("Caballeros");
 			Category cat2 = new Category("Relojes");
 			Category cat3 = new Category("Navajas");
+			Coupon coup = new Coupon("Pedro Pérez", date1, date1, date1, 1, "virtualMoney", "123",
+									customer, sale1);
 			/*Sets to ensure relationships.*/
 			Set<Category> catSet = new HashSet<Category>();
 			Set<Sale> offSales = new HashSet<Sale>();
@@ -72,6 +74,7 @@ public class Main {
 			session.save(customer3);
 			session.save(comp);
 			session.save(sale1);
+			session.save(coup);
 			
 			
 			

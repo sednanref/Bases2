@@ -30,6 +30,12 @@
               <many-to-many class="classes.Category" column="CATEGORY_ID"/>
     	</set>
             
+        <!-- Coupons purchased of the sale -->
+        <set name="coupons" table="COUPONS" lazy="false" inverse="true">
+              <key column="COUPON_ID"/>
+              <one-to-many class="classes.Coupon" />
+    	</set>
+    	
     </class>
     
 </hibernate-mapping>

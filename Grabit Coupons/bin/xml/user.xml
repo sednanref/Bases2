@@ -26,6 +26,11 @@
 			      <key column="FRIEND_EMAIL"/>
 			      <many-to-many column="PERSON_EMAIL" class="classes.Customer" />
 			</set> 
+			<!-- Coupons purchased by the customer -->
+			<set name="purchasedCoupons" table="COUPONS" lazy="false" inverse="true">
+              <key column="COUPON_ID"/>
+              <one-to-many class="classes.Coupon" />
+    		</set>
         </joined-subclass>
          
         <joined-subclass name="Company" extends="User" table="COMPANY">
