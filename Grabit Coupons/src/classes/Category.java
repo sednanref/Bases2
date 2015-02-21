@@ -8,6 +8,8 @@ public class Category {
 	private String name;
 	private Category superCategory;
 	private Set<Category> subCategories = new HashSet<Category>();
+	private Set<Sale> categorySales = new HashSet<Sale>();
+	
 	
 	public Category(String name){
 		this.name = name;
@@ -40,6 +42,14 @@ public class Category {
 
 	public void setSubCategories(Set<Category> subCategories) {
 		this.subCategories = subCategories;
+	}
+
+	public Set<Sale> getCategorySales() {
+		return categorySales;
+	}
+
+	public void setCategorySales(Set<Sale> categorySales) {
+		this.categorySales = categorySales;
 	}
 	
 }

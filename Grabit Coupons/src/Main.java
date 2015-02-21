@@ -26,9 +26,15 @@ public class Main {
 			Category cat = new Category("Caballeros");
 			Category cat2 = new Category("Relojes");
 			Category cat3 = new Category("Navajas");
+			/*Sets to ensure relationships.*/
 			Set<Category> catSet = new HashSet<Category>();
 			Set<Sale> offSales = new HashSet<Sale>();
 			offSales.add(sale1);
+			Set<Customer> friends1 = new HashSet<Customer>();
+			Set<Customer> friends2 = new HashSet<Customer>();
+			Set<Customer> friends3 = new HashSet<Customer>();
+			Set<Category> saleCat = new HashSet<Category>();
+			Set<Sale> catSale = new HashSet<Sale>();
 			/*Relationship between categories and sub-categories*/
 			cat.setSuperCategory(cat);
 			cat2.setSuperCategory(cat);
@@ -40,9 +46,20 @@ public class Main {
 			comp.setOfferedSales(offSales);
 			sale1.setCompany(comp);
 			/*Friendship between customers.*/
+			friends1.add(customer2);
+			friends1.add(customer3);
+			friends2.add(customer);
+			friends3.add(customer);
+			customer.setFriends(friends1);
+			customer2.setFriends(friends2);
+			customer3.setFriends(friends3);
+			/*Relationship between category and sale*/
+			catSale.add(sale1);
+			saleCat.add(cat3);
+			cat3.setCategorySales(catSale);
+			sale1.setCategories(saleCat);
 			
-			
-			//Inicio de la transacción
+			//Transaction starts
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
@@ -59,7 +76,7 @@ public class Main {
 			
 			
 			session.getTransaction().commit();
-			
+			//End of the transaction
 			
 //			String q = "from Category c left join c.subCategories";
 //			

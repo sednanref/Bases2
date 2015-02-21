@@ -13,7 +13,7 @@
         <property name="name" column="NAME"/>
 		
 		<joined-subclass name="Customer" extends="User" table="CUSTOMER">
-			<key column="eMail" />
+			<key column="EMAIL" />
 	        <property name="lastName" column="LAST_NAME"/>
 	        <property name="virtualMoney" column="VIRTUAL_MONEY"/>
 	        <!-- faltan tarjetas de crédito -->

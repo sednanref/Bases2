@@ -7,7 +7,8 @@ public class Company extends User {
 	private String address;
 	private String telephoneNumber;
 	private int customersNumber;
-	private Set<Sale> offeredSales = new HashSet<Sale>();
+	private Set<Sale> offeredSales = new HashSet<Sale>(); //offers of the company
+	
 	
 	
 	public Company(String eMail, String password, String name, String RIF,

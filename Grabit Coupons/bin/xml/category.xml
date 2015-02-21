@@ -12,15 +12,22 @@
         
         <property name="name" column="NAME"/>
 		
-		
+		<!-- Supercategory -->
 		<many-to-one name="superCategory" class="classes.Category" column="SUPERCATEGORY_ID"
             not-null="false"/>
             
+        <!-- Subcategories -->
 		<set name="subCategories" table="CATEGORY" lazy="false" inverse="false">
               <key column="SUPERCATEGORY_ID"/>
               <one-to-many class="classes.Category" />
     	</set>
 		
+		<!-- sales of the category -->
+		<set name="categorySales" table="CATEGORY_SALES" lazy="false" inverse="true">
+              <key column="CATEGORY_ID"/>
+              <many-to-many class="classes.Sale" column="SALE_ID"/>
+    	</set>
+    	
     </class>
     
 </hibernate-mapping>

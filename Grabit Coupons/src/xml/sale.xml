@@ -20,9 +20,15 @@
         <!-- pictures -->
         <property name="description" column="DESCRIPTION"/>
         
-		<!-- Compañía que ofrece la promoción -->
+		<!-- Company of the sale -->
 		<many-to-one name="company" class="classes.Company" column="COMPANY_EMAIL"
             not-null="false"/>
+        
+        <!-- Categories of the sale -->    
+        <set name="categories" table="CATEGORY_SALES" lazy="false" inverse="false">
+              <key column="SALE_ID"/>
+              <many-to-many class="classes.Category" column="CATEGORY_ID"/>
+    	</set>
             
     </class>
     

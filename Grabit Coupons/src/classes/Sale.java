@@ -2,17 +2,18 @@ package classes;
 import java.util.*;
 
 public class Sale {
-	int ID;
-	String name;
-	double originalPrice;
-	double offeredPrice;
-	Date expeditionDate;
-	Date expirationDate;
+	private int ID;
+	private String name;
+	private double originalPrice;
+	private double offeredPrice;
+	private Date expeditionDate;
+	private Date expirationDate;
 	/* links */
 	/* dates */
 	/* pictures */
-	String description;
-	Company company;								/*Empresa a la que pertenece*/
+	private String description;
+	private Company company;		/*Company of the Sale*/
+	private Set<Category> categories = new HashSet<Category>(); /*Categories of the sale*/
 	
 	public Sale( String name, double originalPrice, double offeredPrice,
 				Date expeditionDate, Date expirationDate, String description){
@@ -73,6 +74,14 @@ public class Sale {
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
 	}
 
 }
