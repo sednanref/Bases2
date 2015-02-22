@@ -10,7 +10,6 @@ public class Category {
 	private Set<Category> subCategories = new HashSet<Category>();
 	private Set<Sale> categorySales = new HashSet<Sale>();
 	
-	
 	public Category(String name){
 		this.name = name;
 	}

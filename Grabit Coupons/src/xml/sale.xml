@@ -21,7 +21,16 @@
               <one-to-many class="classes.SaleLink"/>
     	</set>
         <!-- dates -->
+        <set name="dates" table="SALES_DATES" lazy="false" inverse="false">
+              <key column="SALE_ID"/>
+              <many-to-many class="classes.SaleDate" column="DATE"/>
+    	</set>
         <!-- pictures -->
+        <set name="pictures" table="PICTURES" lazy="false" inverse="true">
+              <key column="SALE_ID"/>
+              <one-to-many class="classes.SalePicture"/>
+    	</set>
+    	
         <property name="description" column="DESCRIPTION"/>
         
 		<!-- Company of the sale -->
@@ -29,10 +38,8 @@
             not-null="false"/>
         
         <!-- Categories of the sale -->    
-        <set name="categories" table="CATEGORY_SALES" lazy="false" inverse="false">
-              <key column="SALE_ID"/>
-              <many-to-many class="classes.Category" column="CATEGORY_ID"/>
-    	</set>
+        <many-to-one name="category" class="classes.Category" column="CATEGORY_ID"
+            not-null="false"/>
             
         <!-- Coupons purchased of the sale -->
         <set name="coupons" table="COUPONS" lazy="false" inverse="true">

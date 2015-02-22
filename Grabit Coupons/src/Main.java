@@ -32,6 +32,11 @@ public class Main {
 			CreditCard card2 = new CreditCard("1111222233334445", customer);
 			CreditCard card3 = new CreditCard("1111222233334446", customer);
 			SaleLink link1 = new SaleLink("relojes.com/reloj1", sale1);
+			SaleDate saled1 = new SaleDate(date1);
+			SaleDate saled2 = new SaleDate(date2);
+			SalePicture pic1 = new SalePicture("/1/1.jpg");
+			SalePicture pic2 = new SalePicture("/1/2.jpg");
+			
 			/*Sets to ensure relationships.*/
 			Set<Category> catSet = new HashSet<Category>();
 			Set<Sale> offSales = new HashSet<Sale>();
@@ -43,6 +48,7 @@ public class Main {
 			Set<Sale> catSale = new HashSet<Sale>();
 			Set<CreditCard>credCardSet = new HashSet<CreditCard>();
 			Set<SaleLink>linkSet = new HashSet<SaleLink>();
+			Set<SaleDate>saledSet = new HashSet<SaleDate>();
 			/*Relationship between categories and sub-categories*/
 			cat.setSuperCategory(cat);
 			cat2.setSuperCategory(cat);
@@ -69,11 +75,19 @@ public class Main {
 			catSale.add(sale1);
 			saleCat.add(cat3);
 			cat3.setCategorySales(catSale);
-			sale1.setCategories(saleCat);
+			sale1.setCategory(cat3);
 			/*Relation between the link and the sale*/
 			linkSet.add(link1);
 			sale1.setLinks(linkSet);
-			
+			/*Relation between dates and sale*/
+			saledSet.add(saled1);
+			saledSet.add(saled2);
+			saled1.setSales(catSale);
+			saled2.setSales(catSale);
+			sale1.setDates(saledSet);
+			/*Relation between sale and pictures*/
+			pic1.setSale(sale1);
+			pic2.setSale(sale1);
 			//Transaction starts
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 			Session session = sessionFactory.openSession();
@@ -92,6 +106,10 @@ public class Main {
 			session.save(comp);
 			session.save(sale1);
 			session.save(coup);
+			session.save(saled1);
+			session.save(saled2);
+			session.save(pic1);
+			session.save(pic2);
 			
 			
 			

@@ -8,12 +8,12 @@ public class Sale {
 	private double offeredPrice;
 	private Date expeditionDate;
 	private Date expirationDate;
-	private Set<SaleLink> links = new HashSet<SaleLink>();
-	/* dates */
-	/* pictures */
+	private Set<SaleLink> links = new HashSet<SaleLink>(); /* links */
+	private Set<SaleDate> dates = new HashSet<SaleDate>(); /* dates */
+	private Set<SalePicture> pictures = new HashSet<SalePicture>(); /* pictures */
 	private String description;
 	private Company company;		/*Company of the Sale*/
-	private Set<Category> categories = new HashSet<Category>(); /*Categories of the sale*/
+	Category category;	 			/*Category of the sale*/
 	private Set<Coupon> coupons = new HashSet<Coupon>(); /*Buyers of the sale*/
 	
 	public Sale( String name, double originalPrice, double offeredPrice,
@@ -82,6 +82,22 @@ public class Sale {
 		this.links = links;
 	}
 
+	public Set<SaleDate> getDates() {
+		return dates;
+	}
+
+	public void setDates(Set<SaleDate> dates) {
+		this.dates = dates;
+	}
+
+	public Set<SalePicture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(Set<SalePicture> pictures) {
+		this.pictures = pictures;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -98,12 +114,12 @@ public class Sale {
 		this.company = company;
 	}
 
-	public Set<Category> getCategories() {
-		return categories;
+	public Category getCategory() {
+		return this.category;
 	}
 
-	public void setCategories(Set<Category> categories) {
-		this.categories = categories;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Set<Coupon> getCoupons() {

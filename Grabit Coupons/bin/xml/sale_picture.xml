@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="classes">
+ 
+     <class name="SalePicture" table="Picture">
+        <id name="path" column="PATH" />
+        <!-- Sale of the link -->
+		<many-to-one name="sale" class="classes.Sale" column="SALE_ID"
+            not-null="false"/>
+      
+    </class>
+    
+</hibernate-mapping>
