@@ -13,7 +13,7 @@ public class Sale {
 	private Set<SalePicture> pictures = new HashSet<SalePicture>(); /* pictures */
 	private String description;
 	private Company company;		/*Company of the Sale*/
-	Category category;	 			/*Category of the sale*/
+	private Category category;	 			/*Category of the sale*/
 	private Set<Coupon> coupons = new HashSet<Coupon>(); /*Buyers of the sale*/
 	
 	public Sale( String name, double originalPrice, double offeredPrice,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="classes">
+ 
+     <class name="PayType" table="PAY_TYPE">
+        <id name="ID" column="PAY_TYPE_ID">
+        	<generator class="native" />
+        </id>
+        <property name="type" column="TYPE"/>
+        <!-- Coupons obtained by this pay method -->
+         <set name="coupons" table="COUPON" lazy="false" inverse="true">
+              <key column="PAY_TYPE"/>
+              <one-to-many class="classes.Coupon" />
+    	</set>
+    </class>
+    
+</hibernate-mapping>

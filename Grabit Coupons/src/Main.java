@@ -26,7 +26,9 @@ public class Main {
 			Category cat = new Category("Caballeros");
 			Category cat2 = new Category("Relojes");
 			Category cat3 = new Category("Navajas");
-			Coupon coup = new Coupon("Pedro Pérez", date1, date1, date1, 1, "virtualMoney", "123",
+			PayType pt1 = new PayType("CreditCard");
+			PayType pt2 = new PayType("Virtual Money");
+			Coupon coup = new Coupon("Pedro Pérez", date1, date1, date1, 1, pt2, "123",
 									customer, sale1);
 			CreditCard card1 = new CreditCard("1111222233334444", customer);
 			CreditCard card2 = new CreditCard("1111222233334445", customer);
@@ -93,6 +95,8 @@ public class Main {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 			
+			session.save(pt1);
+			session.save(pt2);
 			session.save(cat);
 			session.save(cat2);
 			session.save(cat3);

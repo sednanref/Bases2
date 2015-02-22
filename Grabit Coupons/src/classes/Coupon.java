@@ -9,13 +9,13 @@ public class Coupon {
 	private Date receiptDate;
 	private Date useDate;
 	private int quantity;
-	private String payType;
+	private PayType payType;
 	private String creditCard;
 	private Customer buyer;
 	private Sale sale;
 	
 	public Coupon(String owner, Date payDate, Date receiptDate, Date useDate,
-			int quantity, String payType, String creditCard, Customer buyer,
+			int quantity, PayType payType, String creditCard, Customer buyer,
 			Sale sale) {
 		super();
 		this.owner = owner;
@@ -65,10 +65,10 @@ public class Coupon {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public String getPayType() {
+	public PayType getPayType() {
 		return payType;
 	}
-	public void setPayType(String payType) {
+	public void setPayType(PayType payType) {
 		this.payType = payType;
 	}
 	public String getCreditCard() {

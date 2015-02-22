@@ -15,12 +15,14 @@
         <property name="receiptDate" type="date" column="RECEIPT_DATE"/>
         <property name="useDate" type="date" column="USE_DATE"/>
         <property name="quantity" column="QUANTITY"/>
-        <property name="payType" column="PAY_TYPE"/>
+        <!-- Pay Type -->
+        <many-to-one name="payType" class="classes.PayType" column="PAY_TYPE"
+        			not-null="true"/>
         <property name="creditCard" column="CREDIT_CARD"/>
-        
+        <!-- Buyer -->
         <many-to-one name="buyer" class="classes.Customer" column="BUYER"
         			not-null="true"/>
-        			
+        <!-- Purchased Sale -->			
         <many-to-one name="sale" class="classes.Sale" column="SALE"
         			not-null="true"/>
             

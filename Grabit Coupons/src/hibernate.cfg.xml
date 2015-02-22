@@ -40,5 +40,6 @@
 		<mapping resource="xml/sale_link.xml"/>
 		<mapping resource="xml/sale_date.xml"/>
 		<mapping resource="xml/sale_picture.xml"/>
+		<mapping resource="xml/pay_type.xml"/>
 	</session-factory>
 </hibernate-configuration>
