@@ -114,6 +114,10 @@ public class DBManager {
 		Set<SaleLink>linkSet2 = new HashSet<SaleLink>();
 		Set<SaleLink>linkSet3 = new HashSet<SaleLink>();
 		Set<SaleLink>linkSet4 = new HashSet<SaleLink>();
+		Set<SalePicture>picSet1 = new HashSet<SalePicture>();
+		Set<SalePicture>picSet2 = new HashSet<SalePicture>();
+		Set<SalePicture>picSet3 = new HashSet<SalePicture>();
+		Set<SalePicture>picSet4 = new HashSet<SalePicture>();
 		/*Relationship between categories and sub-categories*/
 		cat1.setSuperCategory(cat1);
 		cat2.setSuperCategory(cat2);
@@ -194,6 +198,17 @@ public class DBManager {
 		pic3.setSale(sale3);
 		pic4.setSale(sale4);
 		pic5.setSale(sale4);
+		picSet1.add(pic1);
+		picSet2.add(pic2);
+		picSet3.add(pic3);
+		picSet4.add(pic4);
+		picSet4.add(pic5);
+		sale1.setPictures(picSet1);
+		sale2.setPictures(picSet2);
+		sale3.setPictures(picSet3);
+		sale4.setPictures(picSet4);
+		
+		
 
 		//Transaction starts
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -243,10 +258,15 @@ public class DBManager {
 			session.save(pic4);
 			session.save(pic5);
 			
-			// To get total row count.
-//			Long count = (Long) session.createQuery("select count(*) from PayType").uniqueResult();
-//			
-//			System.out.println("Total Count: " + count );
+			/*Query section*/
+			QueryManager queryManager = new QueryManager();
+			System.out.println("=======================   QUERY   1   =======================");
+			queryManager.query1(session);
+			System.out.println("=======================   QUERY   2   =======================");
+			queryManager.query2(session);
+			System.out.println("=======================   QUERY   3   =======================");
+			queryManager.query3(session);
+			
 			session.getTransaction().commit();
 		}catch (HibernateException e) {
 			transaction.rollback();
