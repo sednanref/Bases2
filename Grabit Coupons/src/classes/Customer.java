@@ -5,7 +5,7 @@ public class Customer extends User {
 	
 	private String lastName;
 	private int virtualMoney;
-	private Set<String> creditCards = new HashSet<String>();
+	private Set<CreditCard> creditCards = new HashSet<CreditCard>();
 	private int eMailFrequency;
 	private Set<Customer> persons = new HashSet<Customer>();
 	private Set<Customer> friends = new HashSet<Customer>();      
@@ -36,11 +36,11 @@ public class Customer extends User {
 		this.virtualMoney = virtualMoney;
 	}
 
-	public Set<String> getCreditCards() {
+	public Set<CreditCard> getCreditCards() {
 		return creditCards;
 	}
 
-	public void setCreditCards(Set<String> creditCards) {
+	public void setCreditCards(Set<CreditCard> creditCards) {
 		this.creditCards = creditCards;
 	}
 
