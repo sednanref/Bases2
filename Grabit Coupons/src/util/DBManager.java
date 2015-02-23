@@ -132,16 +132,16 @@ public class DBManager {
 		cat5.setSubCategories(catSet5);
 		/*Relationship between a company and a sale.*/
 		sale1.setCompany(comp1);
-		sale2.setCompany(comp2);
-		sale3.setCompany(comp2);
-		sale4.setCompany(comp3);
+		sale2.setCompany(comp3);
+		sale3.setCompany(comp3);
+		sale4.setCompany(comp2);
 		offSales1.add(sale1);
 		offSales2.add(sale2);
 		offSales2.add(sale3);
 		offSales3.add(sale4);
 		comp1.setOfferedSales(offSales1);
-		comp2.setOfferedSales(offSales2);
-		comp3.setOfferedSales(offSales3);
+		comp3.setOfferedSales(offSales2);
+		comp2.setOfferedSales(offSales3);
 		/*Friendship between customers.*/
 		friends1.add(customer2);
 		friends1.add(customer3);

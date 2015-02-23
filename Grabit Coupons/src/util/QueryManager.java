@@ -51,14 +51,15 @@ public class QueryManager {
 	/*This Query provide the sales offered by a company*/
 	public void query3(Session session){
 		String eMail = "contacto@plazas.com.ve";
-		String query = "select name from Sale where company.eMail='"+eMail+"'";
+		System.out.println("olaaaa");
+		String query = "from Sale sale where sale.company.eMail='" + eMail + "'";
 		Query q = session.createQuery(query);
 		List sales = q.list(); 
 		int i = 1;
 		
     	for (Iterator iterator = sales.iterator(); iterator.hasNext();) {
     		Sale sale = (Sale) iterator.next(); 
-    		System.out.print("Promoción " + i + " : " + sale.getName()); 
+    		System.out.println("Promoción " + i + " : " + sale.getName()); 
     	}
 	}
 }
