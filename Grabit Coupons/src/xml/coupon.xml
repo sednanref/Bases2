@@ -28,4 +28,32 @@
             
     </class>
     
+    <!-- Trigger for Coupon -->
+    <database-object><create>       
+      	CREATE TRIGGER proof 
+      	AFTER INSERT ON COUPON
+		FOR EACH ROW
+		BEGIN
+			
+			IF NEW.PAY_TYPE = 2 THEN
+				SELECT VIRTUAL_MONEY INTO V_MONEY
+				FROM CUSTOMER C
+				WHERE NEW.BUYER = C.EMAIL
+				
+				SELECT OFFERED_PRICE INTO PRICE
+				FROM SALE S
+				WHERE NEW.SALE = S.SALE_ID
+				
+				IF @V_MONEY >= PRICE * NEW.QUANTITY
+					signal sqlstate '45000';
+				ENDIF; 
+				 
+			ENDIF;
+		END;
+        </create><drop>
+        drop trigger proof;
+        </drop><dialect-scope name="org.hibernate.dialect.MySQLDialect"/>
+        
+    </database-object>
+    
 </hibernate-mapping>

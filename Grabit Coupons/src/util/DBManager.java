@@ -67,9 +67,9 @@ public class DBManager {
 								customer, sale1);
 		Coupon coup2 = new Coupon("maria@gmail.com", date1, date2, date2, 2, pt2, "1111222233334444",
 				customer, sale2);
-		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date2, date2, date2, 1, pt1, "1111222233334446",
+		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date2, date2, date2, 3, pt1, "1111222233334446",
 				customer3, sale2);
-		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date3, date3, date5, 1, pt1, "1111222233334447",
+		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date3, date3, date5, 4, pt1, "1111222233334447",
 				customer4, sale4);
 		//Credit Cards
 		CreditCard card1 = new CreditCard("1111222233334444", customer);
