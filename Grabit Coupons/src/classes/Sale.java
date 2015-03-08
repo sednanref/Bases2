@@ -15,6 +15,8 @@ public class Sale {
 	private Company company;		/*Company of the Sale*/
 	private Category category;	 			/*Category of the sale*/
 	private Set<Coupon> coupons = new HashSet<Coupon>(); /*Buyers of the sale*/
+	private State state;
+	
 	
 	public Sale( String name, double originalPrice, double offeredPrice,
 				Date expeditionDate, Date expirationDate, String description){
@@ -24,6 +26,7 @@ public class Sale {
 		this.expeditionDate = expeditionDate;
 		this.expirationDate = expirationDate;
 		this.description = description;
+		this.setState(new State1Waiting());
 	}
 	
 	public int getID() {
@@ -128,6 +131,14 @@ public class Sale {
 
 	public void setCoupons(Set<Coupon> coupons) {
 		this.coupons = coupons;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 }
