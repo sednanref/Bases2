@@ -140,5 +140,9 @@ public class Sale {
 	public void setState(State state) {
 		this.state = state;
 	}
+	
+	public void doAction(Date date) {
+    	state.doAction(this, date);
+    }
 
 }
