@@ -14,17 +14,18 @@ public class Coupon {
 	private Customer buyer;
 	private Sale sale;
 	
-	public Coupon(String owner, Date payDate, Date receiptDate, Date useDate,
+	public Coupon(String owner, Date payDate, Date receiptDate, 
 			int quantity, PayType payType, String creditCard, Customer buyer,
 			Sale sale) {
 		super();
 		this.owner = owner;
 		this.payDate = payDate;
 		this.receiptDate = receiptDate;
-		this.useDate = useDate;
 		this.quantity = quantity;
 		this.payType = payType;
-		this.creditCard = creditCard;
+		if(payType.getType() == "CreditCard"){
+			this.creditCard = creditCard;
+		}
 		this.buyer = buyer;
 		this.sale = sale;
 	}

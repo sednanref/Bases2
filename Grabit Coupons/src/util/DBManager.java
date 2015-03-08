@@ -15,15 +15,15 @@ public class DBManager {
 		//Objects to insert into the DB
 		//Customers
 		Customer customer = new Customer("pedro@gmail.com", "blabla", "pedro",
-									 "Pérez", 50, 7);
+									 "Pérez", 200000, 7);
 		Customer customer2 = new Customer("pablo@gmail.com", "n4p0l3s!", "Pablo Emilio",
-				 "Escobar Gaviria", 200, 0);
+				 "Escobar Gaviria", 200000, 0);
 		Customer customer3 = new Customer("sednanref2004@gmail.com", "12345", "Luis",
 				 "Fernandes", 400, 0);
 		Customer customer4 = new Customer("donatorolo93@gmail.com", "12345", "Donato",
-				 "Rolo", 200, 0);
+				 "Rolo", 10000, 0);
 		Customer customer5 = new Customer("andrea@gmail.com", "sldka", "Andrea",
-				 "Chacón", 0, 0);
+				 "Chacón", 10000, 0);
 		//Companies
 		Company comp1 = new Company("contacto@casio.com.ve", "babyG", "Casio Venezuela",
 				"J-123125", "Los Dos Caminos", "0212-7530800", 300000);
@@ -63,13 +63,13 @@ public class DBManager {
 		PayType pt1 = new PayType("CreditCard");
 		PayType pt2 = new PayType("Virtual Money");
 		//Coupons
-		Coupon coup1 = new Coupon("pedro@gmail.com", date1, date1, date1, 1, pt2, "1111222233334444",
+		Coupon coup1 = new Coupon("pedro@gmail.com", date1, date1, 1, pt2, "1111222233334444",
 								customer, sale1);
-		Coupon coup2 = new Coupon("maria@gmail.com", date1, date2, date2, 2, pt2, "1111222233334444",
+		Coupon coup2 = new Coupon("maria@gmail.com", date1, date2, 2, pt2, "1111222233334444",
 				customer, sale2);
-		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date2, date2, date2, 3, pt1, "1111222233334446",
+		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date2, date2, 3, pt1, "1111222233334446",
 				customer3, sale2);
-		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date3, date3, date5, 4, pt1, "1111222233334447",
+		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date3, date5, 4, pt1, "1111222233334447",
 				customer4, sale4);
 		//Credit Cards
 		CreditCard card1 = new CreditCard("1111222233334444", customer);
