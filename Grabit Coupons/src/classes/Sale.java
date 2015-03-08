@@ -15,6 +15,8 @@ public class Sale {
 	private Company company;		/*Company of the Sale*/
 	private Category category;	 			/*Category of the sale*/
 	private Set<Coupon> coupons = new HashSet<Coupon>(); /*Buyers of the sale*/
+	
+	private int version;
 	private State state;
 	
 	
@@ -26,6 +28,7 @@ public class Sale {
 		this.expeditionDate = expeditionDate;
 		this.expirationDate = expirationDate;
 		this.description = description;
+		this.version = 1;
 		this.setState(new State1Waiting());
 	}
 	
@@ -133,6 +136,14 @@ public class Sale {
 		this.coupons = coupons;
 	}
 
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
 	public State getState() {
 		return state;
 	}
@@ -144,5 +155,6 @@ public class Sale {
 	public void doAction(Date date) {
     	state.doAction(this, date);
     }
+
 
 }

@@ -15,6 +15,7 @@
         <property name="offeredPrice" column="OFFERED_PRICE"/>
         <property name="expeditionDate" type="date" column="EXPEDITION_DATE"/>
         <property name="expirationDate" type="date" column="EXPIRATION_DATE"/>
+      
         <!-- links -->
         <set name="links" table="LINK" lazy="false" inverse="true">
               <key column="SALE_ID"/>
@@ -40,6 +41,9 @@
         <!-- Categories of the sale -->    
         <many-to-one name="category" class="classes.Category" column="CATEGORY_ID"
             not-null="false"/>
+        
+        <!-- Version -->
+        <property name="version" column="VERSION"/>
             
         <!-- Coupons purchased of the sale -->
         <set name="coupons" table="COUPONS" lazy="false" inverse="true">

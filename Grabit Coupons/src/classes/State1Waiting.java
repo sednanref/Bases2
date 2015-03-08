@@ -11,7 +11,7 @@ public class State1Waiting implements State{
 		   todayDate.before(sale.getExpirationDate())){
 			sale.setState(new State2Active());
 			System.out.println("El período de vigencia de la promoción " +
-							  + sale.getID() + "ha comenzado.");
+							  + sale.getID() + " ha comenzado.");
 		}
 	}
 }
