@@ -63,13 +63,13 @@ public class DBManager {
 		PayType pt1 = new PayType("CreditCard");
 		PayType pt2 = new PayType("Virtual Money");
 		//Coupons
-		Coupon coup1 = new Coupon("pedro@gmail.com", date5, date5, 1, pt2, "1111222233334444",
+		Coupon coup1 = new Coupon("pedro@gmail.com", date5, date5, 1, pt1, "1111222233334444",
 								customer, sale1);
-		Coupon coup2 = new Coupon("maria@gmail.com", date5, date5, 2, pt2, "1111222233334444",
+		Coupon coup2 = new Coupon("maria@gmail.com", date5, date5, 2, pt1, "1111222233334444",
 				customer, sale2);
-		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date5, date5, 3, pt2, "1111222233334446",
+		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date5, date5, 3, pt1, "1111222233334446",
 				customer3, sale2);
-		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date5, date5, 4, pt2, "1111222233334447",
+		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date5, date5, 4, pt1, "1111222233334447",
 				customer4, sale4);
 		//Credit Cards
 		CreditCard card1 = new CreditCard("1111222233334444", customer);
