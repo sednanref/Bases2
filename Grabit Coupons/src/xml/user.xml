@@ -54,4 +54,46 @@
         </joined-subclass>
     </class>
     
+    <!-- Trigger that update the virtual money of a customer after the insertion
+    of a Coupon -->
+    <database-object><create> 
+    	<![CDATA[      
+      	CREATE TRIGGER proof 
+      	BEFORE INSERT ON COUPON
+		FOR EACH ROW
+		BEGIN
+			DECLARE V_MONEY integer;
+			DECLARE PRICE double;
+			
+			IF (NEW.PAY_TYPE = '2') THEN
+				
+				SELECT VIRTUAL_MONEY INTO V_MONEY
+				FROM CUSTOMER 
+				WHERE NEW.BUYER = EMAIL;
+				
+				SELECT OFFERED_PRICE INTO PRICE
+				FROM SALE 
+				WHERE NEW.SALE = SALE_ID;
+			
+				IF (V_MONEY < PRICE * NEW.QUANTITY) THEN
+					signal sqlstate '45000';
+				ELSE
+					UPDATE CUSTOMER
+					SET VIRTUAL_MONEY = (V_MONEY - (PRICE * NEW.QUANTITY))
+					WHERE EMAIL = NEW.BUYER;
+				
+				END IF;
+				
+					
+					 
+			END IF;
+			
+		END;
+		
+		]]>
+        </create><drop>
+        drop trigger proof;
+        </drop><dialect-scope name="org.hibernate.dialect.MySQLDialect"/>
+    </database-object>
+    
 </hibernate-mapping>
