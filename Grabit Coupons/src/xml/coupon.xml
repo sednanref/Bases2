@@ -28,8 +28,100 @@
             
     </class>
     
+	 <!-- Trigger that crash the program if a coupon is bought or indicated to be
+	 	  delivered in a date when the sale is not active, i.e., the sale is still
+	 	  waiting or is already expired.
+	 	  This Trigger also updates the virtual money of a customer before the insertion
+    	  of a Coupon  -->
+    <database-object><create> 
+    	<![CDATA[      
+      	CREATE TRIGGER COUPON_INSERT_VERIFICATION 
+      	BEFORE INSERT ON COUPON
+		FOR EACH ROW
+		BEGIN
+			DECLARE DATE1 date;
+			DECLARE DATE2 date;
+			DECLARE V_MONEY integer;
+			DECLARE PRICE double;
+			
+			SELECT EXPEDITION_DATE INTO DATE1
+			FROM SALE 
+			WHERE NEW.SALE = SALE_ID;
+			
+			SELECT EXPIRATION_DATE INTO DATE2
+			FROM SALE 
+			WHERE NEW.SALE = SALE_ID;
+			
+			IF (NEW.PAY_DATE NOT BETWEEN DATE1 AND DATE2) THEN
+				signal sqlstate '45000';			
+			END IF;
+			
+			IF (NEW.RECEIPT_DATE NOT BETWEEN DATE1 AND DATE2) THEN
+				signal sqlstate '45000';			
+			END IF;
+			
+			IF (NEW.PAY_TYPE = '2') THEN
+				
+				SELECT VIRTUAL_MONEY INTO V_MONEY
+				FROM CUSTOMER 
+				WHERE NEW.BUYER = EMAIL;
+				
+				SELECT OFFERED_PRICE INTO PRICE
+				FROM SALE 
+				WHERE NEW.SALE = SALE_ID;
+			
+				IF (V_MONEY < PRICE * NEW.QUANTITY) THEN
+					signal sqlstate '45000';
+				ELSE
+					UPDATE CUSTOMER
+					SET VIRTUAL_MONEY = (V_MONEY - (PRICE * NEW.QUANTITY))
+					WHERE EMAIL = NEW.BUYER;
+				
+				END IF;
+				
+					
+					 
+			END IF;
+			
+		END;
+		
+		]]>
+        </create><drop>
+        drop trigger COUPON_INSERT_VERIFICATION;
+        </drop><dialect-scope name="org.hibernate.dialect.MySQLDialect"/>
+    </database-object>   
     
-        
+     <!-- Trigger that crash the program if the new date of use is not between
+     	  the dates where the sale is valid, i.e., the sale is not active. -->
+    <database-object><create> 
+    	<![CDATA[      
+      	CREATE TRIGGER COUPON_UPDATE_VERIFICATION 
+      	BEFORE UPDATE ON COUPON
+		FOR EACH ROW
+		BEGIN
+			DECLARE DATE1 date;
+			DECLARE DATE2 date;
+			
+			
+			SELECT EXPEDITION_DATE INTO DATE1
+			FROM SALE 
+			WHERE NEW.SALE = SALE_ID;
+			
+			SELECT EXPIRATION_DATE INTO DATE2
+			FROM SALE 
+			WHERE NEW.SALE = SALE_ID;
+			
+			IF (NEW.USE_DATE NOT BETWEEN DATE1 AND DATE2) THEN
+				signal sqlstate '45000';			
+			END IF;
+			
+		END;
+		
+		]]>
+        </create><drop>
+        drop trigger COUPON_UPDATE_VERIFICATION;
+        </drop><dialect-scope name="org.hibernate.dialect.MySQLDialect"/>
+    </database-object>   
 
     
 </hibernate-mapping>

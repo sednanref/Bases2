@@ -15,7 +15,7 @@ public class DBManager {
 		//Objects to insert into the DB
 		//Customers
 		Customer customer = new Customer("pedro@gmail.com", "blabla", "pedro",
-									 "Pérez", 200000, 7);
+									 "Pérez", 0, 7);
 		Customer customer2 = new Customer("pablo@gmail.com", "n4p0l3s!", "Pablo Emilio",
 				 "Escobar Gaviria", 200000, 0);
 		Customer customer3 = new Customer("sednanref2004@gmail.com", "12345", "Luis",
@@ -32,11 +32,11 @@ public class DBManager {
 		Company comp3 = new Company("contacto@plazas.com.ve", "portuguesinhos", "Automercados Plaza's",
 				"J-123124", "Los Ruices", "0212-3843436", 400000);
 		//Dates
-		Date date1 = new Date(2014 - 1900,11,15);
-		Date date2 = new Date(2015 - 1900,11,15);
-		Date date3 = new Date(2014 - 1900,3,17);
-		Date date4 = new Date(2015 - 1900,3,17);
-		Date date5 = new Date(2014 - 1900,11,25);
+		Date date1 = new Date(2014 - 1900,11,15);	// 15/12/2014
+		Date date2 = new Date(2015 - 1900,11,15);	// 15/12/2015
+		Date date3 = new Date(2014 - 1900,3,17);	// 17/04/2015
+		Date date4 = new Date(2015 - 1900,3,17);	// 17/04/2015
+		Date date5 = new Date(2014 - 1900,11,25);	// 25/12/2014
 		//Sales
 		Sale sale1 = new Sale("Relojes Baratos", 100.00, 79.99, date1, date2, 
 							  "Relojes desde 100Bs con 20% de descuento.");
@@ -63,13 +63,13 @@ public class DBManager {
 		PayType pt1 = new PayType("CreditCard");
 		PayType pt2 = new PayType("Virtual Money");
 		//Coupons
-		Coupon coup1 = new Coupon("pedro@gmail.com", date1, date1, 1, pt2, "1111222233334444",
+		Coupon coup1 = new Coupon("pedro@gmail.com", date5, date5, 1, pt2, "1111222233334444",
 								customer, sale1);
-		Coupon coup2 = new Coupon("maria@gmail.com", date1, date2, 2, pt2, "1111222233334444",
+		Coupon coup2 = new Coupon("maria@gmail.com", date5, date5, 2, pt2, "1111222233334444",
 				customer, sale2);
-		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date2, date2, 3, pt2, "1111222233334446",
+		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date5, date5, 3, pt2, "1111222233334446",
 				customer3, sale2);
-		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date3, date5, 4, pt2, "1111222233334447",
+		Coupon coup4 = new Coupon("sednanref2004@gmail.com", date5, date5, 4, pt2, "1111222233334447",
 				customer4, sale4);
 		//Credit Cards
 		CreditCard card1 = new CreditCard("1111222233334444", customer);
