@@ -273,7 +273,7 @@ public class DBManager {
 			//Here we invoke the state changes procedure.
 			
 			DynamicBehaviorManager dbm = new DynamicBehaviorManager();
-			dbm.updateSales(session, sale1, sale2);
+			dbm.updateSales(session, sale1);
 			
 			
 			session.getTransaction().commit();

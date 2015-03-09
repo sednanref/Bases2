@@ -181,11 +181,11 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n6" target="n5">
+    <edge id="e4" source="n6" target="n4">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-15.0">
             <y:Point x="331.8790777599986" y="92.82631183999975"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
@@ -194,11 +194,11 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n3" target="n5">
+    <edge id="e5" source="n3" target="n4">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="0.0" sy="0.0" tx="15.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
           <y:BendStyle smoothed="false"/>
