@@ -15,7 +15,7 @@ public class DBManager {
 		//Objects to insert into the DB
 		//Customers
 		Customer customer = new Customer("pedro@gmail.com", "blabla", "pedro",
-									 "Pérez", 0, 7);
+									 "Pérez", 40000, 7);
 		Customer customer2 = new Customer("pablo@gmail.com", "n4p0l3s!", "Pablo Emilio",
 				 "Escobar Gaviria", 200000, 0);
 		Customer customer3 = new Customer("sednanref2004@gmail.com", "12345", "Luis",
@@ -63,9 +63,9 @@ public class DBManager {
 		PayType pt1 = new PayType("CreditCard");
 		PayType pt2 = new PayType("Virtual Money");
 		//Coupons
-		Coupon coup1 = new Coupon("pedro@gmail.com", date5, date5, 1, pt1, "1111222233334444",
+		Coupon coup1 = new Coupon("pedro@gmail.com", date5, date5, 1, pt2, "1111222233334444",
 								customer, sale1);
-		Coupon coup2 = new Coupon("maria@gmail.com", date5, date5, 2, pt1, "1111222233334444",
+		Coupon coup2 = new Coupon("maria@gmail.com", date5, date5, 2, pt2, "1111222233334444",
 				customer, sale2);
 		Coupon coup3 = new Coupon("donatorolo93@gmail.com", date5, date5, 3, pt1, "1111222233334446",
 				customer3, sale2);

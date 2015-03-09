@@ -92,11 +92,13 @@
     </database-object>   
     
      <!-- Trigger that crash the program if the new date of use is not between
-     	  the dates where the sale is valid, i.e., the sale is not active. -->
+     	  the dates where the sale is valid, i.e., the sale is not active. Moreover,
+     	  the date of use must be between the receipt_date of the coupon and the 
+     	  expiration date of the sale. -->
     <database-object><create> 
     	<![CDATA[      
       	CREATE TRIGGER COUPON_UPDATE_VERIFICATION 
-      	BEFORE UPDATE ON COUPON
+      	BEFORE UPDATE ON COUPON 
 		FOR EACH ROW
 		BEGIN
 			DECLARE DATE1 date;
@@ -111,7 +113,7 @@
 			FROM SALE 
 			WHERE NEW.SALE = SALE_ID;
 			
-			IF (NEW.USE_DATE NOT BETWEEN DATE1 AND DATE2) THEN
+			IF (NEW.USE_DATE NOT BETWEEN NEW.RECEIPT_DATE AND DATE2) THEN
 				signal sqlstate '45000';			
 			END IF;
 			
